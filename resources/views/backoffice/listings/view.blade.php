@@ -11,7 +11,7 @@
             <div class="card spur-card">
                 <div class="card-header bg-info text-white">
                     <div class="spur-card-icon">
-                        <i class="far fa-eye"></i>
+                        <i class="far fa-file-alt"></i>
                     </div>
                     <div class="spur-card-title">Job Listing</div>
                 </div>
