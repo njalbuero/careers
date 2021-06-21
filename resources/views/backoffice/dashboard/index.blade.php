@@ -4,7 +4,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-mobile text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-web text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-graphics text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-qa text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-sales text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-accounting text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>
@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card spur-card">
+            <div class="card spur-card border-0 shadow">
                 <div class="card-header bg-admin text-white">
                     <div class="spur-card-icon">
                         <i class="fas fa-chart-bar"></i>

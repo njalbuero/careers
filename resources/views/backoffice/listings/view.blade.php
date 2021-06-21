@@ -9,9 +9,9 @@
         <div class="col-lg-12">
             <a class="btn btn-primary mb-3" href={{ url()->previous() }}>Back</a>
             <div class="card spur-card">
-                <div class="card-header bg-hsi text-white">
+                <div class="card-header bg-info text-white">
                     <div class="spur-card-icon">
-                        <i class="far fa-file-alt"></i>
+                        <i class="far fa-eye"></i>
                     </div>
                     <div class="spur-card-title">Job Listing</div>
                 </div>

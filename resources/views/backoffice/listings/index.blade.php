@@ -7,10 +7,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success mb-3" href="/backoffice/listings/{{ $department->slug }}/create"><i
-                    class="fas fa-plus"></i></a>
+            <a class="btn btn-success mb-3" href="/backoffice/listings/{{ $department->slug }}/create">Create New</a>
             <div class="card spur-card">
-                <div class="card-header bg-hsi text-white">
+                <div class="card-header">
                     <div class="spur-card-icon">
                         <i class="fas fa-table"></i>
                     </div>

@@ -21,7 +21,11 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="index.html" class="spur-logo"><span>HSI Careers</span></a>
+                <a href="index.html" class="spur-logo"><span>
+                        <div>
+                            <img class="bg-hsi_banner" src="{{ asset('images/hsi_banner_white.png') }}" alt="">
+                        </div>
+                    </span></a>
             </header>
             <nav class="dash-nav-list">
                 <a href="/backoffice/dashboard" class="dash-nav-item @yield('dashboard-selected')">
@@ -85,13 +89,10 @@
             </nav>
         </div>
         <div class="dash-app">
-            <header class="dash-toolbar">
+            <header class="dash-toolbar bg-lavender">
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <div class="ml-3">
-                    <img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt="">
-                </div>
                 <div class="tools">
                     <div class="dropdown tools-item">
                         <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"

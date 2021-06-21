@@ -61,7 +61,10 @@
 }
 .bg-hsi_banner{
   object-fit: cover;
-  height: 50px;
+  height: 48px;
+}
+.bg-hsi-alt{
+  background-color: #caa40c !important;
 }
 .bg-hsi{
   background-color: #d5b63d !important;
@@ -8902,7 +8905,8 @@ body {
           display: flex; } }
     .dash-nav header .spur-logo {
       margin-right: auto;
-      padding-right: 42px; }
+      /* padding-right: 42px; */
+     }
   .dash-nav a {
     color: #515151; }
     .dash-nav a:hover {
