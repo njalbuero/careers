@@ -45,6 +45,15 @@
                                 name="password_confirmation" required />
             </div>
 
+            <div class="mt-4">
+                <label for="role_id" class="block text-sm font-medium text-gray-700">Role</label>
+                <select id="role_id" name="role_id" autocomplete="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="superadministrator">Super Admin</option>
+                  <option value="administrator">Admin</option>
+                  <option value="user">User</option>
+                </select>
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
