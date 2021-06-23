@@ -11,4 +11,10 @@ class QualityAssuranceJob extends Model
     protected $guarded = [
         'id'
     ];
+    public function department(){
+        return $this->belongsto(Department::class);
+    }
+    public function applicants(){
+        return $this->hasMany(QualityAssuranceApplicant::class, 'position_id');
+    }
 }

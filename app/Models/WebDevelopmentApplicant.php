@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class WebDevelopmentApplicant extends Model
 {
-    use HasFactory;
     protected $guarded = [
         'id'
     ];
-    public function getRouteKeyName()
-    {
-        return 'slug';
+    public function job(){
+        return $this->belongsto(WebDevelopmentJob::class, 'position_id');
     }
+    use HasFactory;
 }

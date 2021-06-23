@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-primary mb-3" href={{ url()->previous() }}>Back</a>
+            <a class="btn btn-dark mb-3" href={{ url()->previous() }}>Back</a>
             <div class="card spur-card">
                 <div class="card-header bg-hsi text-white">
                     <div class="spur-card-icon">
@@ -27,7 +27,7 @@
                     <h3>Responsibilities</h3>
                     <p>{!! nl2br(e($job->responsibilities)) !!}</p>
                     <h3>Qualifications</h3>
-                    <p>{{ $job->qualifications }}</p>
+                    <p>{!! nl2br(e($job->responsibilities)) !!}</p>
                     <h3>Salary</h3>
                     <p>{{ $job->salary_min }} - {{ $job->salary_max }}</p>
                 </div>

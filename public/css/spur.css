@@ -65,29 +65,28 @@
 }
 .bg-hsi{
   background-color: #d5b63d !important;
-}
-.bg-mobile{
-background-color: #c0392b !important;
-}
-.bg-web{
-  background-color: #d35400 !important;
-  }
-.bg-graphics{
-background-color: #f39c12 !important;
-}
-.bg-qa{
-background-color: #2ecc71 !important;
-}
-.bg-sales{
-background-color: #1abc9c !important;
-}
+} 
 .bg-accounting{
-background-color: #3498db !important;
+  background-color: #FFD54F !important;
 }
 .bg-admin{
-background-color: #9b59b6 !important;
+  background-color: #FFCA28 !important;
 }
-
+.bg-graphics{
+  background-color: #FFC107 !important;
+}
+.bg-mobile{
+  background-color: #FFB300 !important;
+}
+.bg-qa{
+  background-color: #FFA000 !important;
+}
+.bg-sales{
+  background-color: #FF8F00 !important;
+}
+.bg-web{
+  background-color: #FF6F00 !important;
+}
 /* end custom */
 
 html {

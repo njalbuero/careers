@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AdminJob extends Model
 {
@@ -11,4 +11,10 @@ class AdminJob extends Model
     protected $guarded = [
         'id'
     ];
+    public function department(){
+        return $this->belongsto(Department::class);
+    }
+    public function applicants(){
+        return $this->hasMany(AdminApplicant::class, 'position_id');
+    }
 }

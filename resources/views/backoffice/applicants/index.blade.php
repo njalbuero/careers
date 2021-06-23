@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12">
             @if (Auth::user()->hasRole('superadministrator'))
-                <a class="btn btn-success mb-3" href="/backoffice/listings/{{ $department->slug }}/create"><i
+                <a class="btn btn-success mb-3" href="/backoffice/applicants/{{ $department->slug }}/create"><i
                         class="fas fa-plus"></i></a>
             @endif
             <div class="card spur-card">
@@ -16,39 +16,37 @@
                     <div class="spur-card-icon">
                         <i class="fas fa-table"></i>
                     </div>
-                    <div class="spur-card-title">Job Listings</div>
+                    <div class="spur-card-title">Job Applicants</div>
                 </div>
                 <div class="card-body ">
-                    @if (count($jobs))
+                    @if (count($applicants))
                         <table class="table table-in-card">
                             <thead>
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Employment Type</th>
-                                    <th scope="col">Position Level</th>
-                                    <th scope="col">Salary</th>
-                                    <th scope="col">Applicants</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Position</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($jobs as $job)
+                                @foreach ($applicants as $applicant)
                                     <tr>
-                                        <td>{{ $job->title }}</td>
-                                        <td>{{ $job->employment_type }}</td>
-                                        <td>{{ $job->position_level }}</td>
-                                        <td>{{ $job->salary_min }} - {{ $job->salary_max }}</td>
-                                        <td>{{ $job->applicants->where('disabled', 0)->count() }}</td>
+                                        <td>{{ $applicant->first_name }}</td>
+                                        <td>{{ $applicant->last_name }}</td>
+                                        <td>{{ $applicant->email }}</td>
+                                        <td>{{ $applicant->position }}</td>
                                         <td>
                                             <a class="btn btn-info mr-2"
-                                                href="/backoffice/listings/{{ $job->department->slug }}/{{ $job->id }}/view"><i
-                                                    class="fas fa-eye"></i></a>
+                                                href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/view"><i
+                                                    class="fas fa-download"></i></a>
                                             @if (Auth::user()->hasRole('superadministrator'))
                                                 <a class="btn btn-primary mr-2"
-                                                    href="/backoffice/listings/{{ $job->department->slug }}/{{ $job->id }}/edit"><i
+                                                    href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/edit"><i
                                                         class="fas fa-pen"></i></a>
                                                 <form method="POST"
-                                                    action="/backoffice/listings/{{ $job->department->slug }}/{{ $job->id }}"
+                                                    action="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}"
                                                     style="display: inline">
                                                     @method('DELETE')
                                                     @csrf

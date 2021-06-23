@@ -11,4 +11,10 @@ class SalesJob extends Model
     protected $guarded = [
         'id'
     ];
+    public function department(){
+        return $this->belongsto(Department::class);
+    }
+    public function applicants(){
+        return $this->hasMany(SalesApplicant::class, 'position_id');
+    }
 }
