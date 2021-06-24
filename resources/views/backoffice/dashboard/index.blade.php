@@ -70,25 +70,82 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="stats stats-light shadow-none text-white bg-hsi">
-                <h3 class="stats-title"> Total Applicants </h3>
-                <div class="stats-content">
-                    <div class="stats-icon">
-                        <span class="h2">100</span>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="stats stats-light shadow-none text-white bg-hsi">
+                        <h3 class="stats-title"> Total Applicants </h3>
+                        <div class="stats-content">
+                            <div class="stats-icon">
+                                <span class="h2">100</span>
+                            </div>
+                            <div class="stats-data">
+                                <div class="stats-change">
+                                    <span class="stats-timeframe">from today</span>
+                                    <span class="stats-percentage">10</span>
+                                </div>
+                                <div class="stats-change">
+                                    <span class="stats-timeframe">from this week</span>
+                                    <span class="stats-percentage">20</span>
+                                </div>
+                                <div class="stats-change">
+                                    <span class="stats-timeframe">from this month</span>
+                                    <span class="stats-percentage">30</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stats-data">
-                        <div class="stats-change">
-                            <span class="stats-timeframe">from today</span>
-                            <span class="stats-percentage">10</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card spur-card">
+                        <div class="card-header bg-hsi text-white">
+                            <div class="spur-card-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="spur-card-title"> Applicants </div>
+                            <div class="spur-card-menu">
+                                <div class="dropdown show">
+                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stats-change">
-                            <span class="stats-timeframe">from this week</span>
-                            <span class="stats-percentage">20</span>
-                        </div>
-                        <div class="stats-change">
-                            <span class="stats-timeframe">from this month</span>
-                            <span class="stats-percentage">30</span>
+                        <div class="card-body spur-card-body-chart">
+                            <canvas id="spurChartjsLine"></canvas>
+                            <script>
+                                var ctx = document.getElementById("spurChartjsLine").getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                                        datasets: [{
+                                            label: 'Blue',
+                                            data: [12, 19, 3, 5, 2],
+                                            backgroundColor: window.chartColors.primary,
+                                            borderColor: window.chartColors.primary,
+                                            fill: false
+                                        }, {
+                                            label: 'Red',
+                                            data: [4, 12, 11, 2, 14],
+                                            backgroundColor: window.chartColors.danger,
+                                            borderColor: window.chartColors.danger,
+                                            fill: false
+                                        }]
+                                    },
+                                    options: {
+                                        legend: {
+                                            display: false
+                                        }
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
