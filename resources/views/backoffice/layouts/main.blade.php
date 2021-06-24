@@ -90,6 +90,9 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
+                <div class="ml-3">
+                    <img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt="">
+                </div>
                 <div class="tools">
                     <div class="d-flex align-items-center">
                         @foreach (Auth::user()->roles as $role)
