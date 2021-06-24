@@ -86,8 +86,8 @@
                         </div>
 
                         <div class="col-12 mt-2">
-                            <button type="submit" class="btn btn-dark mr-2">Update</button>
-                            <a class="btn btn-light" href={{ url()->previous() }}>Cancel</a>
+                            <button type="submit" class="btn btn-warning text-white mr-2">Submit</button>
+                            <a class="btn btn-danger" href={{ url()->previous() }}>Cancel</a>
                         </div>
                     </form>
                 </div>

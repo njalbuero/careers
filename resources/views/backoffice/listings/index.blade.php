@@ -64,7 +64,6 @@
                     @else
                         <div class="text-center">No records</div>
                     @endif
-
                 </div>
             </div>
         </div>

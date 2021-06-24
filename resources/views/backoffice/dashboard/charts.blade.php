@@ -6,7 +6,7 @@
 
 @section('content')
     <div>
-        <a class="btn btn-primary mb-3" href={{ url()->previous() }}>Back</a>
+        <a class="btn btn-warning text-white mb-3" href={{ url()->previous() }}>Back</a>
         <div class="row">
             <div class="col-xl-6">
                 <div class="card spur-card">

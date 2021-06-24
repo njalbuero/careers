@@ -52,13 +52,6 @@
           box-sizing: border-box; }
 
 /* custom */
-.spur-card-title a{
-  text-decoration: none !important;
-  color: inherit;
-}
-.spur-card-title a:hover{
-  color: inherit;
-}
 .bg-hsi_banner{
   object-fit: cover;
   height: 50px;
@@ -2399,8 +2392,8 @@ fieldset:disabled a.btn {
 
 .btn-warning {
   color: #212529;
-  background-color: #FCAE3F;
-  border-color: #FCAE3F; }
+  background-color: #d5b63d;
+  border-color: #d5b63d; }
   .btn-warning:hover {
     color: #212529;
     background-color: #fb9e19;
