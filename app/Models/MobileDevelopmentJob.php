@@ -15,4 +15,7 @@ class MobileDevelopmentJob extends Model
     public function department(){
         return $this->belongsto(Department::class);
     }
+    public function applicants(){
+        return $this->hasMany(MobileDevelopmentApplicant::class, 'position_id');
+    }
 }

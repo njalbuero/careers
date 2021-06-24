@@ -15,16 +15,18 @@
 
 <body>
     <div class="form-screen ">
-        <a href="index.html" class="spur-logo">
-            <img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt="">
+        <a href="#" class="spur-logo">
+            <img class="bg-hsi_login" src="{{ asset('images/hsi_banner.png') }}" alt="">
         </a>
         <div class="card account-dialog">
             <div class="card-header bg-hsi text-white"> Please sign in </div>
             <div class="card-body">
-                <form action="#!">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                   
                     <div class="form-group">
-                        <input type="text" class="form-control" id="username" aria-describedby="username"
-                            placeholder="Enter username">
+                        <input type="email" class="form-control" id="email" aria-describedby="email"
+                            placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" placeholder="Enter password">
@@ -36,8 +38,8 @@
                         </div>
                     </div>
                     <div class="account-dialog-actions">
-                        <button type="submit" class="btn btn-primary bg-hsi border-0">Sign in</button>
-                        <a class="account-dialog-link" href="signup.html">Create a new account</a>
+                        <button type="submit" class="btn btn-primary bg-hsi border-0" >Sign in</button>
+                        <a class="account-dialog-link" href="#">Create a new account</a>
                     </div>
                 </form>
             </div>

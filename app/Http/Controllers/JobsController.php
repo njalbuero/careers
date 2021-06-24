@@ -3,58 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\MobileDevelopmentJob;
-use App\Models\WebDevelopmentJob;
-use App\Models\AdminJob;
-use App\Models\SalesJob;
-use App\Models\GraphicsJob;
-use App\Models\QualityAssuranceJob;
-use App\Models\AccountingJob;
 use App\Models\Department;
+use App\Models\AccountingJob;
+use App\Models\AdminJob;
+use App\Models\GraphicsJob;
+use App\Models\MobileDevelopmentJob;
+use App\Models\QualityAssuranceJob;
+use App\Models\SalesJob;
+use App\Models\WebDevelopmentJob;
+use App\Models\AccountingApplicant;
+use App\Models\AdminApplicant;
+use App\Models\GraphicsApplicant;
+use App\Models\MobileDevelopmentApplicant;
+use App\Models\QualityAssuranceApplicant;
+use App\Models\SalesApplicant;
+use App\Models\WebDevelopmentApplicant;
+
 
 class JobsController extends Controller
 {
-    function departmentModel($department){
+    function jobModel($department){
         switch ($department) {
-            case 'mobile_development':
-                $model = MobileDevelopmentJob::class;
-                break;
-            case 'web_development':
-                $model = WebDevelopmentJob::class;
-                break;
-            case 'quality_assurance':
-                $model = QualityAssuranceJob::class;
-                break;
-            case 'graphics':
-                $model = GraphicsJob::class;
-                break;
-            case 'sales':
-                $model = SalesJob::class;
-                break;
             case 'accounting':
                 $model = AccountingJob::class;
                 break;
             case 'admin':
                 $model = AdminJob::class;
                 break;
+            case 'graphics':
+                $model = GraphicsJob::class;
+                break;
+            case 'mobile_development':
+                $model = MobileDevelopmentJob::class;
+                break;
+            case 'quality_assurance':
+                $model = QualityAssuranceJob::class;
+                break;
+            case 'sales':
+                $model = SalesJob::class;
+                break;
+            case 'web_development':
+                $model = WebDevelopmentJob::class;
+                break;
         }
         return $model;
     }
-    public function index($department)
-    {
-        $departmentModel = $this->departmentModel($department);
-        $jobs = $departmentModel::all()->where('disabled', '0');
-        $department = Department::where('slug', $department)->first();
+    
+    public function index(Department $department)
+    {   
+        $jobModel = $this->jobModel($department->slug);
+        $jobs = $jobModel::all()->where('disabled', '0');
         return view('backoffice.listings.index', compact('department', 'jobs'));
     }
 
-    public function create($department)
+    public function create(Department $department)
     {
-        $department = Department::where('slug', $department)->first();
         return view('backoffice.listings.create', compact('department'));
     }
 
-    public function store($department)
+    public function store(Department $department)
     {
         request()->validate([
             'title' => 'required',
@@ -66,8 +73,8 @@ class JobsController extends Controller
             'salary_min' => 'required',
             'salary_max' => 'required'
         ]);
-        $departmentModel = $this->departmentModel($department);
-        $departmentModel::create([
+        $jobModel = $this->jobModel($department->slug);
+        $jobModel::create([
             'title' => request('title'),
             'employment_type' => request('employment_type'),
             'position_level' => request('position_level'),
@@ -76,30 +83,28 @@ class JobsController extends Controller
             'qualifications' => request('qualifications'),
             'salary_min' => request('salary_min'),
             'salary_max' => request('salary_max'),
-            'department_id' => Department::where('slug', $department)->first()->id
+            'department_id' => $department->id
         ]);
         return redirect()->action(
-            [JobsController::class, 'index'], $department
+            [JobsController::class, 'index'], $department->slug
         );
     }
 
-    public function view($department, $job)
+    public function view(Department $department, $job)
     {
-        $departmentModel = $this->departmentModel($department);
-        $job = $departmentModel::findOrFail($job);
-        $department = Department::where('slug', $department)->first();
+        $jobModel = $this->jobModel($department->slug);
+        $job = $jobModel::findOrFail($job);
         return view('backoffice.listings.view', compact('department', 'job'));
     }
 
-    public function edit($department, $job)
+    public function edit(Department $department, $job)
     {
-        $departmentModel = $this->departmentModel($department);
-        $job = $departmentModel::findOrFail($job);
-        $department = Department::where('slug', $department)->first();
+        $jobModel = $this->jobModel($department->slug);
+        $job = $jobModel::findOrFail($job);
         return view('backoffice.listings.edit', compact('department', 'job'));
     }
 
-    public function update($department, $job)
+    public function update(Department $department, $job)
     {
         request()->validate([
             'title' => 'required',
@@ -111,8 +116,8 @@ class JobsController extends Controller
             'salary_min' => 'required',
             'salary_max' => 'required'
         ]);
-        $departmentModel = $this->departmentModel($department);
-        $job = $departmentModel::findOrFail($job);
+        $jobModel = $this->jobModel($department->slug);
+        $job = $jobModel::findOrFail($job);
         $job->update([
             'title' => request('title'),
             'employment_type' => request('employment_type'),
@@ -122,22 +127,22 @@ class JobsController extends Controller
             'qualifications' => request('qualifications'),
             'salary_min' => request('salary_min'),
             'salary_max' => request('salary_max'),
-            'department_id' => Department::where('slug', $department)->first()->id
+            'department_id' => $department->id
         ]);
         return redirect()->action(
-            [JobsController::class, 'index'], $department
+            [JobsController::class, 'index'], $department->slug
         );
     }
 
-    public function destroy($department, $job)
+    public function destroy(Department $department, $job)
     {
-        $departmentModel = $this->departmentModel($department);
-        $job = $departmentModel::findOrFail($job);
+        $jobModel = $this->jobModel($department->slug);
+        $job = $jobModel::findOrFail($job);
         $job->update([
             'disabled' => '1'
         ]);
         return redirect()->action(
-            [JobsController::class, 'index'], $department
+            [JobsController::class, 'index'], $department->slug
         );
     }
 }

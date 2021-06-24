@@ -11,4 +11,10 @@ class WebDevelopmentJob extends Model
     protected $guarded = [
         'id'
     ];
+    public function department(){
+        return $this->belongsto(Department::class);
+    }
+    public function applicants(){
+        return $this->hasMany(WebDevelopmentApplicant::class, 'position_id');
+    }
 }
