@@ -26,13 +26,16 @@ Route::group(['middleware' => ['auth']], function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/backoffice/dashboard', [DashboardController::class, 'index']);
-    Route::get('/backoffice/analytics/{department}', [DashboardController::class, 'analytics']);
+    Route::get('/backoffice/dashboard/{department}', [DashboardController::class, 'analytics']);
 
     Route::get('/backoffice/listings/{department}', [JobsController::class, 'index']);
     Route::get('/backoffice/listings/{department}/{job}/view', [JobsController::class, 'view']);
 
     Route::get('/backoffice/applicants/{department}', [ApplicantsController::class, 'index']);
     Route::get('/backoffice/applicants/{department}/{job}/view', [ApplicantsController::class, 'view']);
+
+    Route::get('/backoffice/listings/', [JobsController::class, 'all']);
+    Route::get('/backoffice/applicants/', [ApplicantsController::class, 'all']);
 });
 
 Route::group(['middleware' => ['auth', 'role:superadministrator']], function () {

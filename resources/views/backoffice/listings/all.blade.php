@@ -1,16 +1,12 @@
 @extends('backoffice.layouts.main')
 
-@section('title', $department->name)
+@section('title', 'All Departments')
 
-@section($department->slug . '-show', 'show')
+@section('listings' . '-selected', 'selected')
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            @if (Auth::user()->hasRole('superadministrator'))
-                <a class="btn btn-success mb-3" href="/backoffice/listings/{{ $department->slug }}/create"><i
-                        class="fas fa-plus"></i></a>
-            @endif
             <div class="card spur-card">
                 <div class="card-header bg-hsi text-white">
                     <div class="spur-card-icon">

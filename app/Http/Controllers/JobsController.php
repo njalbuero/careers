@@ -48,6 +48,18 @@ class JobsController extends Controller
         }
         return $model;
     }
+
+    public function all(){
+        $mobile_jobs = MobileDevelopmentJob::all()->where('disabled', '0');
+        $web_jobs = WebDevelopmentJob::all()->where('disabled', '0');
+        $qa_jobs = QualityAssuranceJob::all()->where('disabled', '0');
+        $sales_jobs = SalesJob::all()->where('disabled', '0');
+        $graphics_jobs = GraphicsJob::all()->where('disabled', '0');
+        $accounting_jobs = AccountingJob::all()->where('disabled', '0');
+        $admin_jobs = AdminJob::all()->where('disabled', '0');
+        $jobs = $mobile_jobs->concat($web_jobs)->concat($qa_jobs)->concat($sales_jobs)->concat($graphics_jobs)->concat($accounting_jobs)->concat($admin_jobs);
+        return view('backoffice.listings.all', compact('jobs'));
+    }
     
     public function index(Department $department)
     {   

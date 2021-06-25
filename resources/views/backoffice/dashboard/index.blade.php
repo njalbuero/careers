@@ -4,99 +4,6 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            <div class="card spur-card border-0">
-                <div class="card-header bg-hsi text-white">
-                    <div class="spur-card-icon">
-                        <i class="fas fa-table"></i>
-                    </div>
-                    <div class="spur-card-title">Departments</div>
-                </div>
-                <div class="card-body ">
-                    <table class="table table-in-card">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Listings</th>
-                                <th scope="col">Applicants</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/accounting">Accounting</a>
-                                </td>
-                                <td>{{ $accounting_jobs }}</td>
-                                <td>{{ $accounting_applicants }}</td>
-                            </tr>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/admin">Admin</a>
-                                </td>
-                                <td>{{ $admin_jobs }}</td>
-                                <td>{{ $admin_applicants }}</td>
-                            </tr>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/graphics">Graphics</a>
-                                </td>
-                                <td>{{ $graphics_jobs }}</td>
-                                <td>{{ $graphics_applicants }}</td>
-                            </tr>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/mobile_development">Mobile
-                                        Development</a>
-                                </td>
-                                <td>{{ $mobile_jobs }}</td>
-                                <td>{{ $mobile_applicants }}</td>
-                            </tr>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/quality_assurance">Quality
-                                        Assurance</a>
-                                </td>
-                                <td>{{ $qa_jobs }}</td>
-                                <td>{{ $qa_applicants }}</td>
-                            </tr>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/sales">Sales</a>
-                                </td>
-                                <td>{{ $sales_jobs }}</td>
-                                <td>{{ $sales_applicants }}</td>
-                            </tr>
-                            <tr>
-                                <td><a class="text-dark" href="/backoffice/analytics/web_development">Web Development</a>
-                                </td>
-                                <td>{{ $web_jobs }}</td>
-                                <td>{{ $web_applicants }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col-12">
-                    <div class="stats stats-light shadow-none text-white bg-hsi">
-                        <h3 class="stats-title"> Total Applicants </h3>
-                        <div class="stats-content">
-                            <div class="stats-icon">
-                                <span class="h2">100</span>
-                            </div>
-                            <div class="stats-data">
-                                <div class="stats-change">
-                                    <span class="stats-timeframe">from today</span>
-                                    <span class="stats-percentage">10</span>
-                                </div>
-                                <div class="stats-change">
-                                    <span class="stats-timeframe">from this week</span>
-                                    <span class="stats-percentage">20</span>
-                                </div>
-                                <div class="stats-change">
-                                    <span class="stats-timeframe">from this month</span>
-                                    <span class="stats-percentage">30</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card spur-card">
@@ -104,10 +11,11 @@
                             <div class="spur-card-icon">
                                 <i class="fas fa-chart-bar"></i>
                             </div>
-                            <div class="spur-card-title"> Applicants </div>
+                            <div class="spur-card-title"> Open positions by department </div>
                             <div class="spur-card-menu">
                                 <div class="dropdown show">
-                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="#">Action</a>
@@ -118,34 +26,137 @@
                             </div>
                         </div>
                         <div class="card-body spur-card-body-chart">
-                            <canvas id="spurChartjsLine"></canvas>
+                            @if ($jobs_total_count)
+                            <canvas id="spurChartjsDougnut"></canvas>
                             <script>
-                                var ctx = document.getElementById("spurChartjsLine").getContext('2d');
+                                const jobs_count = [{!! json_encode($accounting_jobs_count) !!},
+                                    {!! json_encode($admin_jobs_count) !!},
+                                    {!! json_encode($graphics_jobs_count) !!},
+                                    {!! json_encode($mobile_jobs_count) !!},
+                                    {!! json_encode($qa_jobs_count) !!},
+                                    {!! json_encode($sales_jobs_count) !!},
+                                    {!! json_encode($web_jobs_count) !!}
+                                ];
+                                var ctx = document.getElementById("spurChartjsDougnut").getContext('2d');
                                 var myChart = new Chart(ctx, {
-                                    type: 'line',
+                                    type: 'doughnut',
                                     data: {
-                                        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                                        labels: ["Accounting", "Admin", "Graphics", "Mobile Development", "Quality Assurance", "Sales",
+                                            "Web Development"
+                                        ],
                                         datasets: [{
-                                            label: 'Blue',
-                                            data: [12, 19, 3, 5, 2],
-                                            backgroundColor: window.chartColors.primary,
-                                            borderColor: window.chartColors.primary,
-                                            fill: false
-                                        }, {
-                                            label: 'Red',
-                                            data: [4, 12, 11, 2, 14],
-                                            backgroundColor: window.chartColors.danger,
-                                            borderColor: window.chartColors.danger,
+                                            label: 'Week',
+                                            data: jobs_count,
+                                            backgroundColor: [
+                                                '#1ABC9C',
+                                                '#2ECC71',
+                                                '#3498DB',
+                                                '#9B59B6',
+                                                '#F1C40F',
+                                                '#E67E22',
+                                                '#E74C3C',
+                                            ],
+                                            borderColor: '#fff',
                                             fill: false
                                         }]
                                     },
                                     options: {
                                         legend: {
-                                            display: false
+                                            display: true
                                         }
                                     }
                                 });
                             </script>
+                            @else
+                                <div class="text-center">
+                                    No records
+                                </div>
+                            @endif
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card spur-card">
+                        <div class="card-header bg-hsi text-white">
+                            <div class="spur-card-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="spur-card-title"> Applications received by department </div>
+                            <div class="spur-card-menu">
+                                <div class="dropdown show">
+                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body spur-card-body-chart">
+                            @if ($applicants_total_count)
+                            <canvas id="spurChartjsTwoBars"></canvas>
+                            <script>
+                                const applicants_count = [{!! json_encode($accounting_applicants_count) !!},
+                                    {!! json_encode($admin_applicants_count) !!},
+                                    {!! json_encode($graphics_applicants_count) !!},
+                                    {!! json_encode($mobile_applicants_count) !!},
+                                    {!! json_encode($qa_applicants_count) !!},
+                                    {!! json_encode($sales_applicants_count) !!},
+                                    {!! json_encode($web_applicants_count) !!}
+                                ];
+                                var ctx = document.getElementById("spurChartjsTwoBars").getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ["Accounting", "Admin", "Graphics", "Mobile Development", "Quality Assurance", "Sales",
+                                            "Web Development"
+                                        ],
+                                        datasets: [{
+                                            label: 'Blue',
+                                            data: applicants_count,
+                                            backgroundColor: [
+                                                '#1ABC9C',
+                                                '#2ECC71',
+                                                '#3498DB',
+                                                '#9B59B6',
+                                                '#F1C40F',
+                                                '#E67E22',
+                                                '#E74C3C',
+                                            ],
+                                            borderColor: 'transparent'
+                                        }, ]
+                                    },
+                                    options: {
+                                        legend: {
+                                            display: false
+                                        },
+                                        scales: {
+                                            xAxes: [{
+                                                stacked: false,
+                                                beginAtZero: true,
+                                                ticks: {
+                                                    stepSize: 1,
+                                                    min: 0,
+                                                    autoSkip: false
+                                                }
+                                            }]
+                                        }
+
+                                    }
+                                });
+                            </script>
+                            @else
+                                <div class="text-center">No Records</div>
+                            @endif
                         </div>
                     </div>
                 </div>

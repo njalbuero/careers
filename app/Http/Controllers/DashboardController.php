@@ -24,35 +24,42 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $mobile_jobs = MobileDevelopmentJob::where('disabled', 0)->count();
-        $web_jobs = WebDevelopmentJob::where('disabled', 0)->count();
-        $qa_jobs = QualityAssuranceJob::where('disabled', 0)->count();
-        $sales_jobs = SalesJob::where('disabled', 0)->count();
-        $graphics_jobs = GraphicsJob::where('disabled', 0)->count();
-        $accounting_jobs = AccountingJob::where('disabled', 0)->count();
-        $admin_jobs = AdminJob::where('disabled', 0)->count();
-        $mobile_applicants = MobileDevelopmentApplicant::where('disabled', 0)->count();
-        $web_applicants = WebDevelopmentApplicant::where('disabled', 0)->count();
-        $qa_applicants = QualityAssuranceApplicant::where('disabled', 0)->count();
-        $sales_applicants = SalesApplicant::where('disabled', 0)->count();
-        $graphics_applicants = GraphicsApplicant::where('disabled', 0)->count();
-        $accounting_applicants = AccountingApplicant::where('disabled', 0)->count();
-        $admin_applicants = AdminApplicant::where('disabled', 0)->count();
+        $mobile_jobs_count = MobileDevelopmentJob::where('disabled', 0)->count();
+        $web_jobs_count = WebDevelopmentJob::where('disabled', 0)->count();
+        $qa_jobs_count = QualityAssuranceJob::where('disabled', 0)->count();
+        $sales_jobs_count = SalesJob::where('disabled', 0)->count();
+        $graphics_jobs_count = GraphicsJob::where('disabled', 0)->count();
+        $accounting_jobs_count = AccountingJob::where('disabled', 0)->count();
+        $admin_jobs_count = AdminJob::where('disabled', 0)->count();
+        $mobile_applicants_count = MobileDevelopmentApplicant::where('disabled', 0)->count();
+        $web_applicants_count = WebDevelopmentApplicant::where('disabled', 0)->count();
+        $qa_applicants_count = QualityAssuranceApplicant::where('disabled', 0)->count();
+        $sales_applicants_count = SalesApplicant::where('disabled', 0)->count();
+        $graphics_applicants_count = GraphicsApplicant::where('disabled', 0)->count();
+        $accounting_applicants_count = AccountingApplicant::where('disabled', 0)->count();
+        $admin_applicants_count = AdminApplicant::where('disabled', 0)->count();
+        $jobs_total_count = $mobile_jobs_count + $web_jobs_count +
+            $qa_jobs_count + $sales_jobs_count + $graphics_jobs_count + $accounting_jobs_count + $admin_jobs_count;
+        $applicants_total_count = $mobile_applicants_count + $web_applicants_count +
+            $qa_applicants_count + $sales_applicants_count + $graphics_applicants_count + $accounting_applicants_count + $admin_applicants_count;
+
         return view('backoffice.dashboard.index', compact(
-            'mobile_jobs',
-            'web_jobs',
-            'qa_jobs',
-            'sales_jobs',
-            'graphics_jobs',
-            'accounting_jobs',
-            'admin_jobs',
-            'mobile_applicants',
-            'web_applicants',
-            'qa_applicants',
-            'sales_applicants',
-            'graphics_applicants',
-            'accounting_applicants',
-            'admin_applicants',
+            'jobs_total_count',
+            'applicants_total_count',
+            'mobile_jobs_count',
+            'web_jobs_count',
+            'qa_jobs_count',
+            'sales_jobs_count',
+            'graphics_jobs_count',
+            'accounting_jobs_count',
+            'admin_jobs_count',
+            'mobile_applicants_count',
+            'web_applicants_count',
+            'qa_applicants_count',
+            'sales_applicants_count',
+            'graphics_applicants_count',
+            'accounting_applicants_count',
+            'admin_applicants_count',
         ));
     }
 
@@ -60,6 +67,7 @@ class DashboardController extends Controller
     {
         return view('backoffice.dashboard.charts', compact('department'));
     }
+
 
     public function create()
     {

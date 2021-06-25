@@ -23,6 +23,7 @@
                         <table class="table table-in-card">
                             <thead>
                                 <tr>
+                                    <th scope="col">Applied on</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Email</th>
@@ -33,6 +34,13 @@
                             <tbody>
                                 @foreach ($applicants as $applicant)
                                     <tr>
+                                        <td>
+                                            @php
+                                                $time = strtotime($applicant->created_at);
+                                                $myFormatForView = date('m/d/y', $time);
+                                            @endphp
+                                            {{ $myFormatForView }}
+                                        </td>
                                         <td>{{ $applicant->first_name }}</td>
                                         <td>{{ $applicant->last_name }}</td>
                                         <td>{{ $applicant->email }}</td>

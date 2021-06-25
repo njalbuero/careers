@@ -77,6 +77,18 @@ class ApplicantsController extends Controller
         return $model;
     }
 
+    public function all(){
+        $mobile_applicants = MobileDevelopmentApplicant::all()->where('disabled', '0');
+        $web_applicants = WebDevelopmentApplicant::all()->where('disabled', '0');
+        $qa_applicants = QualityAssuranceApplicant::all()->where('disabled', '0');
+        $sales_applicants = SalesApplicant::all()->where('disabled', '0');
+        $graphics_applicants = GraphicsApplicant::all()->where('disabled', '0');
+        $accounting_applicants = AccountingApplicant::all()->where('disabled', '0');
+        $admin_applicants = AdminApplicant::all()->where('disabled', '0');
+        $applicants = $mobile_applicants->concat($web_applicants)->concat($qa_applicants)->concat($sales_applicants)->concat($graphics_applicants)->concat($accounting_applicants)->concat($admin_applicants);
+        return view('backoffice.applicants.all', compact('applicants'));
+    }
+
     public function index(Department $department)
     {
         $applicantModel = $this->applicantModel($department->slug);

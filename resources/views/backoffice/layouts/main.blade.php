@@ -22,16 +22,20 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="/" class="spur-logo"><span>HSI Careers</span></a>
+                <a href="/" class="spur-logo"><span>HSI Recruitment</span></a>
             </header>
             <nav class="dash-nav-list">
                 <a href="/backoffice/dashboard" class="dash-nav-item @yield('dashboard-selected')">
                     <i class="fas fa-home"></i> Dashboard </a>
+                <a href="/backoffice/listings/" class="dash-nav-item @yield('listings-selected')">
+                    <i class="fas fa-briefcase"></i> Job Listings </a>
+                <a href="/backoffice/applicants/" class="dash-nav-item @yield('applicants-selected')">
+                    <i class="fas fa-user-tie"></i> Appplicants </a>
                 <div class="dash-nav-dropdown @yield('accounting-show')">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-calculator"></i> Accounting </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/accounting" class="dash-nav-dropdown-item">Listings</a>
+                        <a href="/backoffice/listings/accounting" class="dash-nav-dropdown-item">Job Listings</a>
                         <a href="/backoffice/applicants/accounting" class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
@@ -39,7 +43,7 @@
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-toolbox"></i> Admin </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/admin" class="dash-nav-dropdown-item">Listings</a>
+                        <a href="/backoffice/listings/admin" class="dash-nav-dropdown-item">Job Listings</a>
                         <a href="/backoffice/applicants/admin" class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
@@ -47,7 +51,7 @@
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-paint-brush"></i> Graphics </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/graphics" class="dash-nav-dropdown-item">Listings</a>
+                        <a href="/backoffice/listings/graphics" class="dash-nav-dropdown-item">Job Listings</a>
                         <a href="/backoffice/applicants/graphics" class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
@@ -55,15 +59,17 @@
                     <a href="#" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-mobile-alt"></i> Mobile Development </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/mobile_development" } class="dash-nav-dropdown-item">Listings</a>
-                        <a href="/backoffice/applicants/mobile_development" class="dash-nav-dropdown-item">Applicants</a>
+                        <a href="/backoffice/listings/mobile_development" } class="dash-nav-dropdown-item">Job
+                            Listings</a>
+                        <a href="/backoffice/applicants/mobile_development"
+                            class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown @yield('quality_assurance-show')">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-clipboard-check"></i> Quality Assurance </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/quality_assurance" class="dash-nav-dropdown-item">Listings</a>
+                        <a href="/backoffice/listings/quality_assurance" class="dash-nav-dropdown-item">Job Listings</a>
                         <a href="/backoffice/applicants/quality_assurance" class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
@@ -71,7 +77,7 @@
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-comments-dollar"></i> Sales </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/sales" class="dash-nav-dropdown-item">Listings</a>
+                        <a href="/backoffice/listings/sales" class="dash-nav-dropdown-item">Job Listings</a>
                         <a href="/backoffice/applicants/sales" class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
@@ -79,7 +85,7 @@
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-laptop-code"></i> Web Development </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="/backoffice/listings/web_development" class="dash-nav-dropdown-item">Listings</a>
+                        <a href="/backoffice/listings/web_development" class="dash-nav-dropdown-item">Job Listings</a>
                         <a href="/backoffice/applicants/web_development" class="dash-nav-dropdown-item">Applicants</a>
                     </div>
                 </div>
@@ -100,13 +106,13 @@
                         @endforeach
                     </div>
                     <div class="dropdown tools-item">
-                        <a href="#!" class="tools-item" id="dropdownNotifications" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                        <a href="#!" class="tools-item" id="dropdownNotifications" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell"></i>
                             <i class="tools-item-count">4</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifications">
-                            <a class="dropdown-item" href="#!">:P</a>
+                            <a class="dropdown-item" href="#!">test</a>
                         </div>
                     </div>
                     <div class="dropdown tools-item">
