@@ -147,6 +147,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="/js/spur.js"></script>
+    @push('datatable-script')
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
+        </script>
+    @endpush
     @yield('script')
 </body>
 

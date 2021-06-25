@@ -32,10 +32,13 @@
                                     <tr>
                                         <td>
                                             @php
-                                                $time = strtotime($job->created_at);
-                                                $myFormatForView = date('m/d/y', $time);
+                                                $dateTime = strtotime($job->created_at);
+                                                $date = date('m/d/y', $dateTime);
+                                                $time = date('h:i A', $dateTime);
                                             @endphp
-                                            {{ $myFormatForView }}
+                                            {{ $date }}
+                                            <br>
+                                            {{ $time }}
                                         </td>
                                         <td>{{ $job->title }}</td>
                                         <td>{{ $job->employment_type }}</td>
@@ -72,7 +75,10 @@
     </div>
 @endsection
 
+
 @section('script')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
+    </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         const deleteBtns = document.getElementsByClassName("btn-danger");

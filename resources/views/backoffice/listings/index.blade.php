@@ -36,10 +36,13 @@
                                     <tr>
                                         <td>
                                             @php
-                                                $time = strtotime($job->created_at);
-                                                $myFormatForView = date('m/d/y', $time);
+                                                $dateTime = strtotime($job->created_at);
+                                                $date = date('m/d/y', $dateTime);
+                                                $time = date('h:i A', $dateTime);
                                             @endphp
-                                            {{ $myFormatForView }}
+                                            {{ $date }}
+                                            <br>
+                                            {{ $time }}
                                         </td>
                                         <td>{{ $job->title }}</td>
                                         <td>{{ $job->employment_type }}</td>

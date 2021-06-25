@@ -36,10 +36,13 @@
                                     <tr>
                                         <td>
                                             @php
-                                                $time = strtotime($applicant->created_at);
-                                                $myFormatForView = date('m/d/y', $time);
+                                                $dateTime = strtotime($applicant->created_at);
+                                                $date = date('m/d/y', $dateTime);
+                                                $time = date('h:i A', $dateTime);
                                             @endphp
-                                            {{ $myFormatForView }}
+                                            {{ $date }}
+                                            <br>
+                                            {{ $time }}
                                         </td>
                                         <td>{{ $applicant->first_name }}</td>
                                         <td>{{ $applicant->last_name }}</td>

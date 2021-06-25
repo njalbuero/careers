@@ -12,18 +12,6 @@
                                 <i class="fas fa-chart-bar"></i>
                             </div>
                             <div class="spur-card-title"> Open positions by department </div>
-                            <div class="spur-card-menu">
-                                <div class="dropdown show">
-                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="card-body spur-card-body-chart">
                             @if ($jobs_total_count)
@@ -89,18 +77,6 @@
                                 <i class="fas fa-chart-bar"></i>
                             </div>
                             <div class="spur-card-title"> Applications received by department </div>
-                            <div class="spur-card-menu">
-                                <div class="dropdown show">
-                                    <a class="spur-card-menu-link" href="#" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="card-body spur-card-body-chart">
                             @if ($applicants_total_count)
@@ -122,7 +98,7 @@
                                                 "Web Development"
                                             ],
                                             datasets: [{
-                                                label: 'Blue',
+                                                label: 'Applicants',
                                                 data: applicants_count,
                                                 backgroundColor: [
                                                     '#1ABC9C',

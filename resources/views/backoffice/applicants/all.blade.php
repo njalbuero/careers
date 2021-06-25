@@ -32,17 +32,21 @@
                                     <tr>
                                         <td>
                                             @php
-                                                $time = strtotime($applicant->created_at);
-                                                $myFormatForView = date('m/d/y', $time);
+                                                $dateTime = strtotime($applicant->created_at);
+                                                $date = date('m/d/y', $dateTime);
+                                                $time = date('h:i A', $dateTime);
                                             @endphp
-                                            {{ $myFormatForView }}
+                                            {{ $date }}
+                                            <br>
+                                            {{ $time }}
                                         </td>
                                         <td>{{ $applicant->first_name }}</td>
                                         <td>{{ $applicant->last_name }}</td>
                                         <td>{{ $applicant->email }}</td>
                                         <td>{{ $applicant->position }}
                                             <br>
-                                            ({{$applicant->job->position_level}}, {{$applicant->job->employment_type}})
+                                            ({{ $applicant->job->position_level }},
+                                            {{ $applicant->job->employment_type }})
                                         </td>
                                         <td>
                                             <a class="btn btn-info mr-2"
