@@ -49,11 +49,11 @@
                                         <td>{{ $applicant->email }}</td>
                                         <td>{{ $applicant->position }}</td>
                                         <td>
-                                            <a class="btn btn-info mr-2"
+                                            <a class="btn btn-info"
                                                 href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/view"><i
                                                     class="fas fa-download"></i></a>
                                             @if (Auth::user()->hasRole('superadministrator'))
-                                                <a class="btn btn-primary mr-2"
+                                                <a class="btn btn-primary"
                                                     href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/edit"><i
                                                         class="fas fa-pen"></i></a>
                                                 <form method="POST"

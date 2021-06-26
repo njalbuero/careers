@@ -49,11 +49,11 @@
                                         <td>{{ $job->position_level }}</td>
                                         <td>{{ $job->applicants->where('disabled', 0)->count() }}</td>
                                         <td>
-                                            <a class="btn btn-info mr-2"
+                                            <a class="btn btn-info"
                                                 href="/backoffice/listings/{{ $job->department->slug }}/{{ $job->id }}/view"><i
                                                     class="fas fa-eye"></i></a>
                                             @if (Auth::user()->hasRole('superadministrator'))
-                                                <a class="btn btn-primary mr-2"
+                                                <a class="btn btn-primary"
                                                     href="/backoffice/listings/{{ $job->department->slug }}/{{ $job->id }}/edit"><i
                                                         class="fas fa-pen"></i></a>
                                                 <form method="POST"

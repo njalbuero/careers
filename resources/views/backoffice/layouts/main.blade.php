@@ -92,7 +92,7 @@
             </nav>
         </div>
         <div class="dash-app">
-            <header class="dash-toolbar bg-lavender">
+            <header class="dash-toolbar">
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
