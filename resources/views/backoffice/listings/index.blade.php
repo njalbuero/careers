@@ -47,7 +47,9 @@
                                         <td>{{ $job->title }}</td>
                                         <td>{{ $job->employment_type }}</td>
                                         <td>{{ $job->position_level }}</td>
-                                        <td>{{ $job->applicants->where('disabled', 0)->count() }}</td>
+                                        <td><a  class="text-dark"
+                                                href="/backoffice/applicants/{{ $job->department->slug }}/{{ $job->id }}">{{ $job->applicants->where('disabled', 0)->count() }}</a>
+                                        </td>
                                         <td>
                                             <a class="btn btn-info"
                                                 href="/backoffice/listings/{{ $job->department->slug }}/{{ $job->id }}/view"><i

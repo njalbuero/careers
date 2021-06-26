@@ -43,14 +43,17 @@
                                         <td>{{ $applicant->first_name }}</td>
                                         <td>{{ $applicant->last_name }}</td>
                                         <td>{{ $applicant->email }}</td>
-                                        <td>{{ $applicant->position }}
-                                            <br>
-                                            ({{ $applicant->job->position_level }},
-                                            {{ $applicant->job->employment_type }})
+                                        <td><a class="text-dark"
+                                                href="/backoffice/listings/{{ $applicant->job->department->slug }}/{{ $applicant->job->id }}/view">
+                                                {{ $applicant->position }}
+                                                <br>
+                                                ({{ $applicant->job->position_level }},
+                                                {{ $applicant->job->employment_type }})
+                                            </a>
                                         </td>
                                         <td>
                                             <a class="btn btn-info"
-                                                href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/view"><i
+                                                href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/download"><i
                                                     class="fas fa-download"></i></a>
                                             @if (Auth::user()->hasRole('superadministrator'))
                                                 <a class="btn btn-primary"

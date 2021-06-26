@@ -52,6 +52,20 @@
                                             legend: {
                                                 display: true,
                                                 position: 'right'
+                                            },
+                                            plugins: {
+                                                labels: [{
+                                                        render: 'label',
+                                                        position: 'outside',
+                                                        arc: true
+                                                    },
+                                                    {
+                                                        fontColor: '#fff',
+                                                        render: 'value',
+                                                        position: 'inside',
+                                                        
+                                                    }
+                                                ]
                                             }
                                         }
                                     });
@@ -128,6 +142,11 @@
                                                         autoSkip: false
                                                     }
                                                 }]
+                                            },
+                                            plugins: {
+                                                labels: {
+                                                    render: 'value'
+                                                }
                                             }
 
                                         }

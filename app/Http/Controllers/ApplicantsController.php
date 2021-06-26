@@ -96,6 +96,12 @@ class ApplicantsController extends Controller
         return view('backoffice.applicants.index', compact('department', 'applicants'));
     }
 
+    public function view(Department $department, $job){
+        $applicantModel = $this->applicantModel($department->slug);
+        $applicants = $applicantModel::all()->where('disabled', '0')->where('position_id', $job);
+        return view('backoffice.applicants.index', compact('department', 'applicants'));
+    }
+
     public function create(Department $department)
     {
         $jobModel = $this->jobModel($department->slug);
@@ -135,7 +141,7 @@ class ApplicantsController extends Controller
         );
     }
 
-    public function view(Department $department, $applicant)
+    public function download(Department $department, $applicant)
     {
         $applicantModel = $this->applicantModel($department->slug);
         $applicant = $applicantModel::findOrFail($applicant);

@@ -7,9 +7,13 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            @if (Auth::user()->hasRole('superadministrator'))
-                <a class="btn btn-success mb-3" href="/backoffice/applicants/{{ $department->slug }}/create"><i
-                        class="fas fa-plus"></i></a>
+            @if (Request::segment(4))
+                <a class="btn btn-warning text-white mb-3" href={{ url()->previous() }}>Back</a>
+            @else
+                @if (Auth::user()->hasRole('superadministrator'))
+                    <a class="btn btn-success mb-3" href="/backoffice/applicants/{{ $department->slug }}/create"><i
+                            class="fas fa-plus"></i></a>
+                @endif
             @endif
             <div class="card spur-card">
                 <div class="card-header bg-hsi text-white">
@@ -47,10 +51,17 @@
                                         <td>{{ $applicant->first_name }}</td>
                                         <td>{{ $applicant->last_name }}</td>
                                         <td>{{ $applicant->email }}</td>
-                                        <td>{{ $applicant->position }}</td>
+                                        <td><a class="text-dark"
+                                                href="/backoffice/listings/{{ $applicant->job->department->slug }}/{{ $applicant->job->id }}/view">
+                                                {{ $applicant->position }}
+                                                <br>
+                                                ({{ $applicant->job->position_level }},
+                                                {{ $applicant->job->employment_type }})
+                                            </a>
+                                        </td>
                                         <td>
                                             <a class="btn btn-info"
-                                                href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/view"><i
+                                                href="/backoffice/applicants/{{ $applicant->job->department->slug }}/{{ $applicant->id }}/download"><i
                                                     class="fas fa-download"></i></a>
                                             @if (Auth::user()->hasRole('superadministrator'))
                                                 <a class="btn btn-primary"
