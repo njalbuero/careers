@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/backoffice/listings/{department}/{job}/view', [JobsController::class, 'view']);
 
     Route::get('/backoffice/applicants/{department}', [ApplicantsController::class, 'index']);
-    Route::get('/backoffice/applicants/{department}/{job}', [ApplicantsController::class, 'view']);
+    Route::get('/backoffice/applicants/{department}/{job}/view', [ApplicantsController::class, 'view']);
     Route::get('/backoffice/applicants/{department}/{job}/download', [ApplicantsController::class, 'download']);
 
     Route::get('/backoffice/listings/', [JobsController::class, 'all']);

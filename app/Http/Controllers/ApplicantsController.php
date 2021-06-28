@@ -86,6 +86,7 @@ class ApplicantsController extends Controller
         $accounting_applicants = AccountingApplicant::all()->where('disabled', '0');
         $admin_applicants = AdminApplicant::all()->where('disabled', '0');
         $applicants = $mobile_applicants->concat($web_applicants)->concat($qa_applicants)->concat($sales_applicants)->concat($graphics_applicants)->concat($accounting_applicants)->concat($admin_applicants);
+        $applicants = $applicants->sortByDesc('created_at');
         return view('backoffice.applicants.all', compact('applicants'));
     }
 
@@ -93,12 +94,14 @@ class ApplicantsController extends Controller
     {
         $applicantModel = $this->applicantModel($department->slug);
         $applicants = $applicantModel::all()->where('disabled', '0');
+        $applicants = $applicants->sortByDesc('created_at');
         return view('backoffice.applicants.index', compact('department', 'applicants'));
     }
 
     public function view(Department $department, $job){
         $applicantModel = $this->applicantModel($department->slug);
         $applicants = $applicantModel::all()->where('disabled', '0')->where('position_id', $job);
+        $applicants = $applicants->sortByDesc('created_at');
         return view('backoffice.applicants.index', compact('department', 'applicants'));
     }
 

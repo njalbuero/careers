@@ -58,6 +58,7 @@ class JobsController extends Controller
         $accounting_jobs = AccountingJob::all()->where('disabled', '0');
         $admin_jobs = AdminJob::all()->where('disabled', '0');
         $jobs = $mobile_jobs->concat($web_jobs)->concat($qa_jobs)->concat($sales_jobs)->concat($graphics_jobs)->concat($accounting_jobs)->concat($admin_jobs);
+        $jobs = $jobs->sortByDesc('created_at');
         return view('backoffice.listings.all', compact('jobs'));
     }
     
@@ -65,6 +66,7 @@ class JobsController extends Controller
     {   
         $jobModel = $this->jobModel($department->slug);
         $jobs = $jobModel::all()->where('disabled', '0');
+        $jobs = $jobs->sortByDesc('created_at');
         return view('backoffice.listings.index', compact('department', 'jobs'));
     }
 
