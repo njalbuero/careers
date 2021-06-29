@@ -12,10 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
+Route::get('/home', function () {
+    return view('guest.home');
+});
+Route::get('/recruitment', function () {
+    return view('guest.recruitment');
+});
+Route::get('/departments/{department}/view', [GuestController::class, 'departmentView']);
+Route::get('/departments/{department}/{job}/apply', [GuestController::class, 'apply']);
+Route::post('/departments/{department}/{job}/', [GuestController::class, 'submit']);
 
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')

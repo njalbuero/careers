@@ -1,0 +1,18 @@
+* {
+  font-family: Ubuntu light;
+  
+}
+#btnapply:hover {
+    background-color:red;
+    color:red;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+
+#btncancel:hover {
+    background-color:#caa40c;
+    color:red;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
