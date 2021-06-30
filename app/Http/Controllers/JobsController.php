@@ -65,8 +65,7 @@ class JobsController extends Controller
     public function index(Department $department)
     {   
         $jobModel = $this->jobModel($department->slug);
-        $jobs = $jobModel::all()->where('disabled', '0');
-        $jobs = $jobs->sortByDesc('created_at');
+        $jobs = $jobModel::latest()->get()->where('disabled', '0');
         return view('backoffice.listings.index', compact('department', 'jobs'));
     }
 

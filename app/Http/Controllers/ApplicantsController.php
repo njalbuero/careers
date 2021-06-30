@@ -96,15 +96,14 @@ class ApplicantsController extends Controller
     public function index(Department $department)
     {
         $applicantModel = $this->applicantModel($department->slug);
-        $applicants = $applicantModel::all()->where('disabled', '0');
-        $applicants = $applicants->sortByDesc('created_at');
+        $applicants = $applicantModel::latest()->get()->where('disabled', '0');
         return view('backoffice.applicants.index', compact('department', 'applicants'));
     }
 
     public function view(Department $department, $job)
     {
         $applicantModel = $this->applicantModel($department->slug);
-        $applicants = $applicantModel::all()->where('disabled', '0')->where('position_id', $job);
+        $applicants = $applicantModel::latest()->get()->where('disabled', '0')->where('position_id', $job);
         $applicants = $applicants->sortByDesc('created_at');
         return view('backoffice.applicants.index', compact('department', 'applicants'));
     }

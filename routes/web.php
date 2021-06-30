@@ -19,8 +19,6 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-Route::get('/send-email', [ApplicantMailController::class, 'sendEmail']);
-
 // guest
 Route::get('/home', function () {
     return view('guest.home');
