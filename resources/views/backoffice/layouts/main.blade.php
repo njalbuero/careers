@@ -98,7 +98,7 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <div class="ml-3">
-                    <img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt="">
+                    <a href="/home" target="_blank"><img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt=""></a>
                 </div>
                 <div class="tools">
                     <div class="d-flex align-items-center">
@@ -110,7 +110,7 @@
                         <a href="#!" class="tools-item" id="dropdownNotifications" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell"></i>
-                            <i class="tools-item-count">4</i>
+                            {{-- <i class="tools-item-count">4</i> --}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifications">
                             <a class="dropdown-item" href="#!">test</a>

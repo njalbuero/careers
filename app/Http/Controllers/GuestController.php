@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\AdminJob;
 use App\Models\SalesJob;
 use App\Models\Department;
+use App\Mail\ApplicantMail;
 use App\Models\GraphicsJob;
 use Illuminate\Http\Request;
 use App\Models\AccountingJob;
@@ -15,6 +16,7 @@ use App\Models\WebDevelopmentJob;
 use App\Models\AccountingApplicant;
 use App\Models\QualityAssuranceJob;
 use App\Models\MobileDevelopmentJob;
+use Illuminate\Support\Facades\Mail;
 use App\Models\WebDevelopmentApplicant;
 use App\Models\QualityAssuranceApplicant;
 use App\Models\MobileDevelopmentApplicant;
@@ -113,6 +115,14 @@ class GuestController extends Controller
             'position_id' => $jobModel::findOrFail($job)->id,
             'position' => $jobModel::findOrFail($job)->title
         ]);
+
+        $details = [
+            'name' => request('first_name') . " " . request('last_name'),
+            'position' => $jobModel::findOrFail($job)->title
+        ];
+        $subject = $jobModel::findOrFail($job)->title . " Application - Highly Succeed Inc";
+        Mail::to(request('email'))->send(new ApplicantMail($details, $subject));
+
        return view('guest.recruitment');
     }
 }

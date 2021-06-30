@@ -34,17 +34,17 @@
                         <div style=" width: 818px; overflow: auto; ">
                             <h2 style="color: #444548;"><b>{{ $job->title }}</b></h2>
                             <div>
-                                <h5>Salary: ₱ {{ $job->salary_min }} - {{ $job->salary_max }}</h5>
+                                <h5 style="font-size:14px;">Salary: ₱ {{ $job->salary_min }} - {{ $job->salary_max }}</h5>
                                 <h5 style="font-size:14px;">Position Level: {{ $job->position_level }}</h5>
                                 <h5 style="font-size:14px;">Employment Type: {{ $job->employment_type }}</h5>
                             </div><br>
 
                             <strong>Job Description:</strong>
-                            <p style="padding-left: 10px;">{{ $job->description }}</p>
+                            <p style="padding-left: 10px;">{!! nl2br(e($job->description)) !!}</p>
                             <strong> Responsibilities </strong>
-                            <p style="padding-left: 10px;">{{ $job->responsibilities }}</p>
+                            <p style="padding-left: 10px;">{!! nl2br(e($job->responsibilities)) !!}</p>
                             <strong>Qualifications</strong><br>
-                            <p style="padding-left: 10px;">{{ $job->qualifications }}</p>
+                            <p style="padding-left: 10px;">{!! nl2br(e($job->qualifications)) !!}</p>
                             <center>
                                 <a href="/departments/{{ $department->slug }}/{{ $job->id }}/apply" id="btnapply"
                                     type="button" class="btn btn-dark" style="border-radius: 25px; 
