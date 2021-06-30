@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AdminJob;
 use App\Models\SalesJob;
 use App\Models\Department;
+use App\Mail\ApplicantMail;
 use App\Models\GraphicsJob;
 use Illuminate\Http\Request;
 use App\Models\AccountingJob;
@@ -16,6 +17,7 @@ use App\Models\WebDevelopmentJob;
 use App\Models\AccountingApplicant;
 use App\Models\QualityAssuranceJob;
 use App\Models\MobileDevelopmentJob;
+use Illuminate\Support\Facades\Mail;
 use App\Models\WebDevelopmentApplicant;
 use App\Models\QualityAssuranceApplicant;
 use App\Models\MobileDevelopmentApplicant;
@@ -77,7 +79,8 @@ class ApplicantsController extends Controller
         return $model;
     }
 
-    public function all(){
+    public function all()
+    {
         $mobile_applicants = MobileDevelopmentApplicant::all()->where('disabled', '0');
         $web_applicants = WebDevelopmentApplicant::all()->where('disabled', '0');
         $qa_applicants = QualityAssuranceApplicant::all()->where('disabled', '0');
@@ -98,7 +101,8 @@ class ApplicantsController extends Controller
         return view('backoffice.applicants.index', compact('department', 'applicants'));
     }
 
-    public function view(Department $department, $job){
+    public function view(Department $department, $job)
+    {
         $applicantModel = $this->applicantModel($department->slug);
         $applicants = $applicantModel::all()->where('disabled', '0')->where('position_id', $job);
         $applicants = $applicants->sortByDesc('created_at');
@@ -138,6 +142,14 @@ class ApplicantsController extends Controller
             'position_id' => request('position_id'),
             'position' => $jobModel::findOrFail(request('position_id'))->title
         ]);
+
+        $details = [
+            'name' => request('first_name') . " " . request('last_name'),
+            'position' => $jobModel::findOrFail(request('position_id'))->title
+        ];
+        $subject = $jobModel::findOrFail(request('position_id'))->title . " Application - Highly Succeed Inc";
+        Mail::to(request('email'))->send(new ApplicantMail($details, $subject));
+
         return redirect()->action(
             [ApplicantsController::class, 'index'],
             $department->slug
@@ -149,7 +161,7 @@ class ApplicantsController extends Controller
         $applicantModel = $this->applicantModel($department->slug);
         $applicant = $applicantModel::findOrFail($applicant);
         $fileName = $applicant->file;
-        if(file_exists(public_path('uploads/' . $fileName))){
+        if (file_exists(public_path('uploads/' . $fileName))) {
             return response()->download(public_path('uploads/' . $fileName));
         }
     }

@@ -98,7 +98,7 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <div class="ml-3">
-                    <img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt="">
+                    <a href="/home" target="_blank"><img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt=""></a>
                 </div>
                 <div class="tools">
                     <div class="d-flex align-items-center">

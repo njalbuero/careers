@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicantMailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,9 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
+Route::get('/send-email', [ApplicantMailController::class, 'sendEmail']);
+
+// guest
 Route::get('/home', function () {
     return view('guest.home');
 });
@@ -28,6 +32,7 @@ Route::get('/departments/{department}/view', [GuestController::class, 'departmen
 Route::get('/departments/{department}/{job}/apply', [GuestController::class, 'apply']);
 Route::post('/departments/{department}/{job}/', [GuestController::class, 'submit']);
 
+// backoffice
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')
     ->name('login');
