@@ -7,7 +7,6 @@ footer {
     bottom: 0;
     width: 100%;
 } */
-
 .header-links {
     height: 53px;
     background: #fff;
@@ -255,9 +254,7 @@ ul.social-footer2 li a {
     text-align: center;
 }
 
-.btn {
-    background-color: #1C00ff00;
-}
+
 
 footer .btn {
     background-color: #ff8d1e;

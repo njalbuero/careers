@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/guest.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/guest.css') }}">
     @yield('style')
 </head>
 
-<body style="background-image: url(images/@yield('background')); background-attachment: fixed; background-repeat: no-repeat; 
+<body style="background-image: url('images/@yield('background')); background-attachment: fixed; background-repeat: no-repeat; 
     background-size: cover;">
     <div class="header-links">
         <div class="container">
@@ -37,7 +36,7 @@
     <header>
         <nav class="navbar navbar-expand-md" style="padding:25px 0px 20px 0px; background-color: white;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/home"><img src="{{asset('images/logo.png')}}"
+                <a class="navbar-brand" href="/home"><img src="{{ asset('images/logo.png') }}"
                         style="width: 360px; margin-left:160px;"></a>
 
                 <ul class="navbar-nav ml-auto">
@@ -78,23 +77,32 @@
                         <a class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>
-                                <i class="fas fa-bell" style="color:#caa40c"></i>
+                                <i class="fas fa-caret-down"></i>
                             </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="urgent">
-                                <h6 class="dropdown-header" style="text-align: center; color: #fff">Urgent Hiring</h6>
-                                <a class="dropdown-item" href="dep1">Web Development</a>
-                                <a class="dropdown-item" href="dep2">Mobile Development</a>
+                            {{-- <div class="urgent">
+                                <h6 class="dropdown-header" style="text-align: center; color: #fff">Hiring</h6>
+                                <a class="dropdown-item" href="/departments/web_development/view">Web Development</a>
+                                <a class="dropdown-item" href="/departments/mobile_development/view">Mobile
+                                    Development</a>
                             </div>
-
                             <div class="dropdown-divider"></div>
-                            <h6 class="dropdown-header" style="text-align: center">Other Departments</h6>
-                            <a class="dropdown-item" href="#">Accounting</a>
-                            <a class="dropdown-item" href="#">Graphic Design</a>
-                            <a class="dropdown-item" href="#">Admin</a>
-                            <a class="dropdown-item" href="#">Sales</a>
-                            <a class="dropdown-item" href="#">Quality Assurance</a>
+                            <h6 class="dropdown-header" style="text-align: center"> Departments</h6>
+                            <a class="dropdown-item" href="/departments/accounting/view">Accounting</a>
+                            <a class="dropdown-item" href="/departments/graphics/view">Graphic Design</a>
+                            <a class="dropdown-item" href="/departments/admin/view">Admin</a>
+                            <a class="dropdown-item" href="/departments/sales/view">Sales</a>
+                            <a class="dropdown-item" href="/departments/quality_assurance/view">Quality Assurance</a> --}}
+                            <h6 class="dropdown-header" style="text-align: center"> Departments</h6>
+                            <a class="dropdown-item" href="/departments/admin/view">Admin</a>
+                            <a class="dropdown-item" href="/departments/accounting/view">Accounting</a>
+                            <a class="dropdown-item" href="/departments/graphics/view">Graphic Design</a>
+                            <a class="dropdown-item" href="/departments/mobile_development/view">Mobile
+                                Development</a>
+                            <a class="dropdown-item" href="/departments/quality_assurance/view">Quality Assurance</a>
+                            <a class="dropdown-item" href="/departments/sales/view">Sales</a>
+                            <a class="dropdown-item" href="/departments/web_development/view">Web Development</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -119,11 +127,9 @@
         <div class="main-footer widgets-dark typo-light">
             <div class="container">
                 <div class="row">
-
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <div class="widget subscribe no-box">
                             <p class="footer-header-text widget-title">Highly Succeed Inc,</p>
-
                             <ul>
                                 <li>
                                     586-87-29
@@ -142,11 +148,8 @@
                             </p>
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-sm-6 col-md-3">
-
                     </div>
-
                     <div class=" col-xs-12 col-sm-6 col-md-3">
                         <div class="widget no-box">
                             <p class="footer-header-text widget-title">Helpful Links</p>
@@ -173,32 +176,25 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-sm-6 col-md-3">
-
                         <div class="widget no-box">
                             <p class="footer-header-text widget-title">Subscribe to our newsletter</p>
                             <form class="newsletter">
                                 <div class="form-group">
-
                                     <input type="email" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Your name">
-
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="exampleInputPassword1"
                                         placeholder="Your email">
                                 </div>
-
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
         <div class="footer-copyright">
             <div class="container">
                 <div class="row footer-copyright-inner">
@@ -206,7 +202,6 @@
                         <p><span id="all-rights">All rights reserved © 2019</span> <span id="copyright-hs">Highly
                                 Succeed</span></p>
                     </div>
-
                     <div class="footer-copyright-links">
                         <a href="">Terms & Conditions</a>
                         &nbsp
@@ -220,7 +215,6 @@
         </div>
     </footer>
 
-    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
