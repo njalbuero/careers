@@ -35,12 +35,8 @@
                         <div style=" width: 818px; overflow: auto; ">
                             <h2 style="color: #444548;"><b>{{ $job->title }}</b></h2>
                             <div>
-<<<<<<< HEAD
                                 <h5 style="font-size:14px;">Salary: ₱ {{ $job->salary_min }} - {{ $job->salary_max }}
                                 </h5>
-=======
-                                <h5 style="font-size:14px;">Salary: ₱ {{ $job->salary_min }} - {{ $job->salary_max }}</h5>
->>>>>>> mail
                                 <h5 style="font-size:14px;">Position Level: {{ $job->position_level }}</h5>
                                 <h5 style="font-size:14px;">Employment Type: {{ $job->employment_type }}</h5>
                             </div><br>
