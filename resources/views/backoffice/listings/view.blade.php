@@ -27,7 +27,7 @@
                     <h3>Responsibilities</h3>
                     <p>{!! nl2br(e($job->responsibilities)) !!}</p>
                     <h3>Qualifications</h3>
-                    <p>{!! nl2br(e($job->responsibilities)) !!}</p>
+                    <p>{!! nl2br(e($job->qualifications)) !!}</p>
                     <h3>Salary</h3>
                     <p>{{ $job->salary_min }} - {{ $job->salary_max }}</p>
                 </div>

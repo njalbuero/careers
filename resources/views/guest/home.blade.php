@@ -1,4 +1,5 @@
 @extends('guest.layouts.app')
+@section('title' , 'Home')
 @section('background', 'background.png')
 @section('home-active', 'nav-active')
 @section('style')
