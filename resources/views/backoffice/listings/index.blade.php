@@ -12,7 +12,7 @@
                         class="fas fa-plus"></i></a>
             @endif
             <div class="card spur-card">
-                <div class="card-header bg-hsi text-white">
+                <div class="card-header">
                     <div class="spur-card-icon">
                         <i class="fas fa-table"></i>
                     </div>

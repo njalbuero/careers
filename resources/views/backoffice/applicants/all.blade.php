@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card spur-card">
-                <div class="card-header bg-hsi text-white">
+                <div class="card-header">
                     <div class="spur-card-icon">
                         <i class="fas fa-table"></i>
                     </div>

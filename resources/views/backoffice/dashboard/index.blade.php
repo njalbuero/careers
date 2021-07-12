@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card spur-card">
-                        <div class="card-header bg-hsi text-white">
+                        <div class="card-header">
                             <div class="spur-card-icon">
                                 <i class="fas fa-chart-bar"></i>
                             </div>
@@ -86,7 +86,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card spur-card">
-                        <div class="card-header bg-hsi text-white">
+                        <div class="card-header">
                             <div class="spur-card-icon">
                                 <i class="fas fa-chart-bar"></i>
                             </div>

@@ -23,7 +23,7 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="/" class="spur-logo"><span>HSI Recruitment</span></a>
+                <a href="/" class="spur-logo"><span>Recruitment</span></a>
             </header>
             <nav class="dash-nav-list">
                 <a href="/backoffice/dashboard" class="dash-nav-item @yield('dashboard-selected')">
@@ -97,9 +97,6 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <div class="ml-3">
-                    <a href="/home" target="_blank"><img class="bg-hsi_banner" src="{{ asset('images/hsi_banner.png') }}" alt=""></a>
-                </div>
                 <div class="tools">
                     <div class="d-flex align-items-center">
                         @foreach (Auth::user()->roles as $role)

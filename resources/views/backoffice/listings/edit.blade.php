@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card spur-card">
-                <div class="card-header bg-hsi text-white">
+                <div class="card-header ">
                     <div class="spur-card-icon">
                         <i class="fas fa-pen"></i>
                     </div>
@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="col-12 mt-2">
-                            <button type="submit" class="btn btn-warning text-white mr-2">Submit</button>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
                             <a class="btn btn-danger" href={{ url()->previous() }}>Cancel</a>
                         </div>
                     </form>

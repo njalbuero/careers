@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12">
             @if (Request::segment(4))
-                <a class="btn btn-warning text-white mb-3" href={{ url()->previous() }}>Back</a>
+                <a class="btn btn-primary mb-3" href={{ url()->previous() }}>Back</a>
             @else
                 @if (Auth::user()->hasRole('superadministrator'))
                     <a class="btn btn-success mb-3" href="/backoffice/applicants/{{ $department->slug }}/create"><i
@@ -16,7 +16,7 @@
                 @endif
             @endif
             <div class="card spur-card">
-                <div class="card-header bg-hsi text-white">
+                <div class="card-header">
                     <div class="spur-card-icon">
                         <i class="fas fa-table"></i>
                     </div>

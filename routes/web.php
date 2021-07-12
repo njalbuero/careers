@@ -20,15 +20,7 @@ use App\Http\Controllers\ApplicantsController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 // guest
-Route::get('/home', function () {
-    return view('guest.home');
-});
-Route::get('/recruitment', function () {
-    return view('guest.recruitment');
-});
-Route::get('/departments/{department}/view', [GuestController::class, 'departmentView']);
-Route::get('/departments/{department}/{job}/apply', [GuestController::class, 'apply']);
-Route::post('/departments/{department}/{job}/', [GuestController::class, 'submit']);
+
 
 // backoffice
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
