@@ -103,16 +103,7 @@
                             {{ $role->display_name }}
                         @endforeach
                     </div>
-                    <div class="dropdown tools-item">
-                        <a href="#!" class="tools-item" id="dropdownNotifications" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                            {{-- <i class="tools-item-count">4</i> --}}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotifications">
-                            <a class="dropdown-item" href="#!">test</a>
-                        </div>
-                    </div>
+                   
                     <div class="dropdown tools-item">
                         <a href="#" class="" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
